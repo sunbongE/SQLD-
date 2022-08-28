@@ -107,3 +107,48 @@
 **GSI(Global Single Instance)**
 
 통합된 하나의 인스턴스 즉, 통합 데이터베이스 구조를 의미함. (분산 데이터베이스와 대치되는 개념)
+
+
+
+## 2과목 1장 SQL 기본
+
+
+
+**데이터 조작어(DML) **: SELECT, INSERT, UPDATE, DELETE
+
+**데이터 정의어(DDL)** : CREATE, ALTER, DROP, RENAME
+
+**데이터 제어어(DCL)** : GRANT, REVOKE
+
+**트랜젝션 제어어(TCL)** : COMMIT, ROLLBACK
+
+ 
+
+As-Is : 비절차적 데이터 조작어(DML)는 사용자가 무슨 데이터를 원하는 지만을 명세함
+
+To-Be : 절차적 데이터 조작어는 어떻게 데이터를 접근 하는지 명세함 (PL/SQL(오라클),T-SQL(SQL Serve))
+
+
+
+### Delete(/Modify) Action : Cascade, Set Null, Set Default, Restrict
+
+1.  Cascade : Master 삭제 시 Child 같이 삭제
+2.  Set Null : Master 삭제 시 Child 해당 필드 NULL
+3.  Set Default : Master 삭제 시 Child 해당 필드 Default 값으로 설정
+4.  Restrict : Child 테이블에 PK 값이 없는 경우만 Master 삭제 허용
+5. No Action : 참조무결성을 위반하는 삭제/수정 액션을 취하지 않음
+
+
+
+### Insert Action : Automatic, Set Null, Set Default, Dependent
+
+1.  Automatic : Master 테이블에 PK가 없는 경우 Master PK를 생성 후 Child 입력
+2. Set Null :  Master 테이블에 PK가 없는 경우 Child 외부키를 NULL값으로 처리
+3.  Set Default : Master 테이블에 PK가 없는 경우 Child 외부키를 지정된 기본값으로 입력
+4. Dependent : Master 테이블에 PK가 존재할 때만 Child 입력 허용
+5. No Action : 참조무결성을 위반하는 입력 액션을 취하지 않음
+
+
+
+
+
